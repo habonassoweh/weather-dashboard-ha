@@ -42,34 +42,35 @@ let weather = {
       })
       .then((data) => this.displayWeather(data));
   },
-  displayWeather: function (data) {
-    var { name } = data;
-    var { description } = data.weather[0];
-    var { temp, humidity } = data.main;
-    var { speed } = data.wind;
-
-    var cityEL = (document.querySelector(".city").innerText =
-      "Weather in " + name);
-
-    var descriptionEl = (document.querySelector(".description").innerText =
-      description);
-
-    var tempEl = (document.querySelector(".temp").innerText = temp + "°C");
-
-    var humidityEl = (document.querySelector(".humidity").innerText =
-      "Humidity: " + humidity + "%");
-
-    var windEl = (document.querySelector(".wind").innerText =
-      "Wind speed: " + speed + " km/h");
-
-    var weatherEl = document
-      .querySelector(".weather")
-      .classList.remove("loading");
-  },
 
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);
   },
+};
+
+displayWeather = function (data) {
+  var { name } = data;
+  var { description } = data.weather[0];
+  var { temp, humidity } = data.main;
+  var { speed } = data.wind;
+
+  var cityEL = (document.querySelector(".city").innerText =
+    "Weather in " + name);
+
+  var descriptionEl = (document.querySelector(".description").innerText =
+    description);
+
+  var tempEl = (document.querySelector(".temp").innerText = temp + "°C");
+
+  var humidityEl = (document.querySelector(".humidity").innerText =
+    "Humidity: " + humidity + "%");
+
+  var windEl = (document.querySelector(".wind").innerText =
+    "Wind speed: " + speed + " km/h");
+
+  var weatherEl = document
+    .querySelector(".weather")
+    .classList.remove("loading");
 };
 
 document
